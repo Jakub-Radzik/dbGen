@@ -22,10 +22,10 @@
             $arr_data_types[$i-1]=$_POST['data-type-'.strval($i)];
         }
     
-        for ($i=0; $i < count($arr_col_names) ; $i++) { 
-            echo $arr_col_names[$i].' '.$arr_data_types[$i];
-            echo '<br>';
-        }
+        // for ($i=0; $i < count($arr_col_names) ; $i++) { 
+        //     echo $arr_col_names[$i].' '.$arr_data_types[$i];
+        //     echo '<br>';
+        // }
 
         $conn_dict = array(
             1 => "first_names",
@@ -35,6 +35,8 @@
             5 => "streets",
             6 => "email_domains",
         );
+        
+        
 
         //BASE CONNECT
 
@@ -45,10 +47,29 @@
         // Create connection
         $conn = new mysqli($servername, $username, $password, 'generator');
 
+        $array_data= [];
+        for ($i=0; $i < count($arr_data_types) ; $i++) { 
+            
+            
+            if($arr_data_types[$i]==0){
+                continue;
+            }
+            $array_data[$i]=[];
+            $sql = "SELECT * FROM ".$conn_dict[$arr_data_types[$i]].';';
+            echo $sql.$i;
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+
+            while($row = $result->fetch_assoc()) {
+                array_push($array_data[$i],$row['col']);
+            }
+            }
+    }
+
+    // echo var_dump($array_data[2]);
 
 
-
-        //GENERATE QUERIES
+        //GENERATE QUERIES RESULT
         echo 'CREATE DATABASE '.$db_name.';';
         echo '<br>';
         echo '<br>';
