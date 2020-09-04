@@ -1,7 +1,14 @@
-input {
+input, select, option {
   width: 100px;
+  margin: 1px;
+  border-radius: 5px; }
+
+input {
   height: 30px; }
   input[type="button"] {
     background: red; }
+
+select, option {
+  height: 36px; }
 
 /*# sourceMappingURL=style.css.map */

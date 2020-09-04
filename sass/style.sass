@@ -1,5 +1,15 @@
-input
+%sizing
     width: 100px
+    margin: 1px
+    border-radius: 5px
+    
+    
+input
+    @extend %sizing
     height: 30px
     &[type="button"]
         background: red
+
+select, option
+    @extend %sizing
+    height: 36px
