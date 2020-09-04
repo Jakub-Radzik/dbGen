@@ -22,7 +22,31 @@
             $arr_data_types[$i-1]=$_POST['data-type-'.strval($i)];
         }
     
-    
+        for ($i=0; $i < count($arr_col_names) ; $i++) { 
+            echo $arr_col_names[$i].' '.$arr_data_types[$i];
+            echo '<br>';
+        }
+
+        $conn_dict = array(
+            1 => "first_names",
+            2 => "last_names",
+            3 => "cities",
+            4 => "countries",
+            5 => "streets",
+            6 => "email_domains",
+        );
+
+        //BASE CONNECT
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, 'generator');
+
+
+
 
         //GENERATE QUERIES
         echo 'CREATE DATABASE '.$db_name.';';
