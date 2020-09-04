@@ -1,6 +1,6 @@
 //DATA
-var options = ['First Name', 'Last Name', 'City', 'Country', 'Street', 'Email'];
-var examples = ['Jakub', 'Radzik', 'Wroclaw', 'Poland', 'Spacerowa', 'jakub.radzik@onet.pl'];
+var options = ['Id','First Name', 'Last Name', 'City', 'Country', 'Street', 'Email'];
+var examples = ['1,2,3...','Jakub', 'Radzik', 'Wroclaw', 'Poland', 'Spacerowa', 'jakub.radzik@onet.pl'];
 
 var option_html='<option value="-1">Select type</option>';
 
@@ -35,9 +35,11 @@ function generate_example(x){
 function numering(){
     //FIND LAST LP 
     let lp = document.querySelectorAll('.lp');
+    
     for (let i = 0; i < lp.length; i++) {
         lp[i].innerHTML=i+1; 
-        console.log(i)
+        lp[i].parentElement.querySelector('.col-name').querySelector('*').name=`col-name-${i+1}`;
+        lp[i].parentElement.querySelector('.td-type').querySelector('*').name=`data-type-${i+1}`;
     }
 }
 
@@ -49,10 +51,10 @@ function add_line(){
     <td class="lp">
     </td>
     <td class="col-name">
-    <input type="text">
+    <input type="text"  name="col-name">
     </td>
     <td class="td-type">
-    <select class='type' name="data-type" id="data_type" onchange="generate_example(this)">
+    <select class='type' name="data-type" onchange="generate_example(this)">
     ${option_html}
     </select>
     </td>

@@ -11,7 +11,7 @@
     <h1>Database Generator</h1>
     <hr>
     <div id="app">
-        <form action="" method="post">
+        <form action="generator.php" method="POST">
             
             <table>
                 <thead>
@@ -22,8 +22,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th><input type="text" placeholder="Database Name"></th>
-                        <th><input type="text" placeholder="Table Name"></th>
+                        <th><input type="text" placeholder="Database Name" name="db-name"></th>
+                        <th><input type="text" placeholder="Table Name" name="tab-name"></th>
                     </tr>
                 </tbody>
             </table>
@@ -52,11 +52,11 @@
                         </td>
 
                         <td class="col-name">
-                            <input type="text">
+                            <input type="text"  name="col-name-1">
                         </td>
 
                         <td class="td-type">
-                            <select class='type' name="data-type" id="data_type" onchange="generate_example(this)">
+                            <select class='type' name="data-type-1" onchange="generate_example(this)">
                             </select>
                         </td>
 
@@ -73,7 +73,7 @@
 
             <input type="button" id="appender" onclick="add_line()" value="Dodaj linię">
             <br>
-            <input type="submit" value="Generuj bazę" disabled>
+            <input type="submit" value="Generuj bazę">
         </form>
 
     </div>  
