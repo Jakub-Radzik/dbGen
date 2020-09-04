@@ -34,6 +34,7 @@
 
                 <thead>
                 <tr>
+                    <th>Delete</th>
                     <th>LP</th>
                     <th>Column Name</th>
                     <th>Type</th>
@@ -43,6 +44,9 @@
 
                 <tbody id="liner">
                     <tr>
+                        <td class="dismiss">
+                            <input type="button" value="X" onclick="delete_line(this)">
+                        </td>
                         <td class="lp">
                             1
                         </td>
@@ -51,9 +55,8 @@
                             <input type="text">
                         </td>
 
-                        <td class="type">
-                            <select name="" id="">
-                                <option value="Select type">Select type</option>
+                        <td class="td-type">
+                            <select class='type' name="data-type" id="data_type" onchange="generate_example(this)">
                             </select>
                         </td>
 
@@ -74,5 +77,8 @@
         </form>
 
     </div>  
+    <script>
+        generate_options();
+    </script>
 </body>
 </html>

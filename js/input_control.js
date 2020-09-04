@@ -2,37 +2,68 @@
 var options = ['First Name', 'Last Name', 'City', 'Country', 'Street', 'Email'];
 var examples = ['Jakub', 'Radzik', 'Wroclaw', 'Poland', 'Spacerowa', 'jakub.radzik@onet.pl'];
 
+var option_html='<option value="-1">Select type</option>';
 
+for (let i = 0; i < options.length; i++) {
+    option_html+=`<option value="${i}">${options[i]}</option>`;    
+}
 
+function generate_options(){
+    
+    let types = document.querySelectorAll('.type')
 
+    for (let i = 0; i < types.length; i++) {
+        types[i].innerHTML=option_html;
+    }
+
+}
+
+function generate_example(x){
+    
+    let active_example='';
+
+    if(x.value==-1){
+        active_example='';
+    }else{
+        active_example=examples[x.value];
+    }
+    
+    x.parentNode.parentNode.querySelector('.example').innerHTML=active_example;
+
+}
+
+function numering(){
+    //FIND LAST LP 
+    let lp = document.querySelectorAll('.lp');
+    for (let i = 0; i < lp.length; i++) {
+        lp[i].innerHTML=i+1; 
+        console.log(i)
+    }
+}
 
 function add_line(){
 
-    //FIND LAST LP 
-    let numbers = document.querySelectorAll('.lp');
-    let ar = [];
-    for (let i = 0; i < numbers.length; i++) {
-        ar.push(parseInt(numbers[i].innerHTML.trim()));
-    }
-    let new_lp = Math.max.apply(null, ar);
-    new_lp++;
-    
-    let place = document.querySelector('#liner');
-    let new_child = `
+    let child_line = document.createElement('tr');
+    child_line.innerHTML=`
+    <td><input type="button" value="X" onclick="delete_line(this)"></td>
     <td class="lp">
-    ${new_lp}
     </td>
     <td class="col-name">
     <input type="text">
     </td>
-    <td class="type">
-    <select name="" id="">
-        <option value="Select type">Select type</option>
+    <td class="td-type">
+    <select class='type' name="data-type" id="data_type" onchange="generate_example(this)">
+    ${option_html}
     </select>
     </td>
     <td class="example">
     </td>`;
     
-    let place_code =place.innerHTML + new_child;
-    place.innerHTML=place_code;
+    document.querySelector('#liner').appendChild(child_line);
+    numering();
+}
+
+function delete_line(x){
+    x.parentNode.parentNode.remove();
+    numering();
 }
