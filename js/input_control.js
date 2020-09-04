@@ -1,22 +1,10 @@
+//DATA
+var options = ['First Name', 'Last Name', 'City', 'Country', 'Street', 'Email'];
+var examples = ['Jakub', 'Radzik', 'Wroclaw', 'Poland', 'Spacerowa', 'jakub.radzik@onet.pl'];
 
-var line = `
-<td class="lp">
 
-</td>
 
-<td class="col-name">
-<input type="text">
-</td>
 
-<td class="type">
-<select name="" id="">
-    <option value="Select type">Select type</option>
-</select>
-</td>
-
-<td class="example">
-
-</td>`;
 
 function add_line(){
 
