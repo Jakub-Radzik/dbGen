@@ -1,12 +1,7 @@
-input, select, option {
+select, option, input {
   width: 100px;
   margin: 1px;
   border-radius: 5px; }
-
-input {
-  height: 30px; }
-  input[type="button"] {
-    background: red; }
 
 select, option {
   height: 36px; }
@@ -31,5 +26,10 @@ tr {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+
+input {
+  height: 30px; }
+  input[type="button"] {
+    background: red; }
 
 /*# sourceMappingURL=style.css.map */
