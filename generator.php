@@ -9,10 +9,6 @@
     <?php
     
         echo var_dump($_POST);
-        echo $_POST['db-name'];
-        echo $_POST['tab-name'];
-        echo $_POST['col-name'];
-        echo $_POST['data-type'];
     
     
     
