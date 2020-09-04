@@ -8,8 +8,27 @@
     <script src="js/input_control.js"></script>
 </head>
 <body>
+    <h1>Database Generator</h1>
+    <hr>
     <div id="app">
         <form action="" method="post">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nazwa bazy</th>
+                        <th>Nazwa tabeli</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><input type="text" placeholder="Database Name"></th>
+                        <th><input type="text" placeholder="Table Name"></th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
 
             <table>
 
@@ -46,11 +65,14 @@
                 
                 </tbody>
 
+
             </table>
 
+            <input type="button" id="appender" onclick="add_line()" value="Dodaj linię">
+            <br>
+            <input type="submit" value="Generuj bazę">
         </form>
 
-        <button id="appender" onclick="add_line()">Dodaj linię</button>
     </div>  
 </body>
 </html>
