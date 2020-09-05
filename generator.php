@@ -28,6 +28,7 @@
         // }
 
         $conn_dict = array(
+            0 => "ID",
             1 => "first_names",
             2 => "last_names",
             3 => "cities",
@@ -91,61 +92,67 @@
         
         $str_insert = implode(',',$arr_col_names); //String with col names and commas
         
-
-        // for ($i=0; $i < $array_data ; $i++) { 
-        //     echo var_dump($array_data[$i]);
-        //     echo '<br><br>';
-        // }
-
-        $str_values = ''; //String with values for inserts
+         //String with values for inserts
        
-        
-        
-        //GENERATE MAIL
-        if(in_array(6, $arr_data_types)){
-            $mail_position = array_search(6, $arr_data_types);
-            $random_mail = rand(0, count($array_data[$mail_position])-1);
-            if(in_array(1, $arr_data_types) && in_array(2, $arr_data_types)){
-                $mail=$array_data[array_search(1, $arr_data_types)][0].'.'.$array_data[array_search(2, $arr_data_types)][0].'@'.$array_data[$mail_position][$random_mail];
-            }elseif(in_array(1, $arr_data_types)){
-                $mail=$array_data[array_search(1, $arr_data_types)][0].'123@'.$array_data[$mail_position][$random_mail];
-            }elseif(in_array(1, $arr_data_types)){
-                $mail=$array_data[array_search(2, $arr_data_types)][0].'4xyz@'.$array_data[$mail_position][$random_mail];
-            }else{
-                $mail = 'auto-mail'.strval(rand(0,9999999)).'@'.$array_data[$mail_position][$random_mail];
-            }
-        }else{
-            $mail='';
+        function generator_column_values($index, $arr_type, $data){
+                $position = array_search($index, $arr_type);
+                $random = rand(0, count($data[$position])-1);
+                $value = $data[$position][$random];
+                return $value;            
         }
 
-        echo $mail;
-        echo $str_values;
-        echo '<br>';
-        //TESTS
-        echo '<hr>';
-        echo '<br>';
-        // echo in_array(6, $arr_data_types);
-        echo '<br><br>';
-        echo var_dump($arr_data_types[1]);
-        // // echo var_dump($array_data[0]);
-        // echo var_dump(array_search(1, $arr_data_types));
-        // echo var_dump($array_data[array_search(1, $arr_data_types)][0]);
-        echo '<hr>';
+        
 
-
+        $str_values = '';
         for ($i=0; $i < $quantity ; $i++) { 
 
 
 
+            //MAIL GENERATOR
+            if(in_array(6, $arr_data_types)){
+                $mail_position = array_search(6, $arr_data_types);
+                $random_mail = rand(0, count($array_data[$mail_position])-1);
+                if(in_array(1, $arr_data_types) && in_array(2, $arr_data_types)){
+                    $mail=$array_data[array_search(1, $arr_data_types)][$i].'.'.$array_data[array_search(2, $arr_data_types)][$i].'@'.$array_data[$mail_position][$random_mail];
+                }elseif(in_array(1, $arr_data_types)){
+                    $mail=$array_data[array_search(1, $arr_data_types)][$i].'123@'.$array_data[$mail_position][$random_mail];
+                }elseif(in_array(1, $arr_data_types)){
+                    $mail=$array_data[array_search(2, $arr_data_types)][$i].'4xyz@'.$array_data[$mail_position][$random_mail];
+                }else{
+                    $mail = 'auto-mail'.strval(rand(0,9999999)).'@'.$array_data[$mail_position][$random_mail];
+                }
+            }else{
+                $mail='';
+            }
+
+            for ($k=0; $k < count($arr_data_types) ; $k++) { 
+                if($arr_data_types[$k]=='6'){
+                    $str_values.= "'".$mail."'";
+                }elseif($arr_data_types[$k]=='0'){
+                    $str_values.=strval($i);
+                }
+                else{
+                    $str_values.= "'".generator_column_values($arr_data_types[$k],$arr_data_types,$array_data)."'";
+                    //WATCH OUT- IF NUMERIC VALUE WE DON"T NEED APOSTROFS 
+                }
+
+                if($k!=count($arr_data_types)-1){
+                    $str_values.=',';
+                }
+
+
+            }
 
 
 
 
 
-            echo 'INSERT INTO '.$tab_name.'('.$str_insert.')'.'VALUES();';
+            echo 'INSERT INTO '.$tab_name.'('.$str_insert.')'.'VALUES('.$str_values.');';
+            $mail='';
+            $str_values = '';
             echo '<br>';
         }
-// 
+
 
     
     ?>
