@@ -40,6 +40,7 @@ function numering(){
         lp[i].innerHTML=i+1; 
         lp[i].parentElement.querySelector('.col-name').querySelector('*').name=`col-name-${i+1}`;
         lp[i].parentElement.querySelector('.td-type').querySelector('*').name=`data-type-${i+1}`;
+        lp[i].parentElement.querySelector('.type-of-data-td').querySelector('*').name=`type-of-data-${i+1}`;
     }
 }
 
@@ -59,7 +60,11 @@ function add_line(){
     </select>
     </td>
     <td class="example">
-    </td>`;
+    </td>
+    <td class="type-of-data-td">
+    <input type="text" name="type-of-data">
+    </td>
+`;
     
     document.querySelector('#liner').appendChild(child_line);
     numering();
