@@ -58,7 +58,6 @@
             }
             $array_data[$i]=[];
             $sql = "SELECT * FROM ".$conn_dict[$arr_data_types[$i]].';';
-            echo $sql.$i;
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
 
@@ -68,7 +67,6 @@
             }
     }
 
-    // echo var_dump($array_data[2]);
 
 
         //GENERATE QUERIES RESULT

@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database generator</title>
+
+    <!-- Latest compiled and minified CSS -->   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/input_control.js"></script>
+    <script src="js/tooltips.js"></script>
 </head>
 <body>
     <h1>Database Generator</h1>
@@ -39,6 +51,9 @@
                     <th>Column Name</th>
                     <th>Type</th>
                     <th>Example</th>
+                    <th data-toggle="tooltip" data-placement="top" title="Hooray!">
+                        Data type
+                    </th>
                 </tr>
                 </thead>
 
@@ -62,6 +77,10 @@
 
                         <td class="example">
 
+                        </td>
+
+                        <td class="type-of-data-td">
+                            <input type="text" name="name="type-of-data-1">
                         </td>
 
                     </tr>
