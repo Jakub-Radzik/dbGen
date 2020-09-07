@@ -13,13 +13,15 @@
         $tab_name = $_POST['tab-name'];
         $quantity = $_POST['quantity'];
         
-        $arr_col_names = [];
-        $arr_data_types = [];
+        $arr_col_names = []; //EXAMPLE: Names created by user
+        $arr_data_types = []; //EXAMPLE: Name, Street in SQL DB
+        $arr_type_of_data = []; //EXAMPLE: int(10), varchar(255)
 
 
-        for ($i=1; $i <= (count($_POST)-2)/2 ; $i++) { 
+        for ($i=1; $i <= intdiv(count($_POST),4)+1 ; $i++) { 
             $arr_col_names[$i-1]=$_POST['col-name-'.strval($i)];
             $arr_data_types[$i-1]=$_POST['data-type-'.strval($i)];
+            $arr_type_of_data[$i-1]=$_POST['type-of-data-'.strval($i)];
         }
     
         // for ($i=0; $i < count($arr_col_names) ; $i++) { 
@@ -70,20 +72,20 @@
 
 
         //GENERATE QUERIES RESULT
-        echo 'CREATE DATABASE '.$db_name.';'; // Create DB query
+        echo "CREATE DATABASE `".$db_name.'`;'; // Create DB query
         echo '<br>';
         echo '<br>';
-        echo 'CREATE TABLE '.$tab_name.'('; // Create Table query
+        echo 'CREATE TABLE '."`".$tab_name."`".'('; // Create Table query
         echo '<br>';
         for ($i=0; $i < count($arr_col_names) ; $i++) { // Col names in create table
-            echo $arr_col_names[$i];
+            echo $arr_col_names[$i].' '.$arr_type_of_data[$i];
 
             if($i!=count($arr_col_names)-1){//We don't need comma after last column name
                 echo ',';
             }
             echo '<br>';
         }
-        echo ')';// Create Table end of query
+        echo ');';// Create Table end of query
         echo '<br><br>';
         
         //INSERTS INTO query
@@ -145,7 +147,7 @@
 
 
 
-            echo 'INSERT INTO '.$tab_name.'('.$str_insert.')'.'VALUES('.$str_values.');';
+            echo 'INSERT INTO '."`".$tab_name."`".'('.$str_insert.')'.'VALUES('.$str_values.');';
             $mail='';
             $str_values = '';
             echo '<br>';
