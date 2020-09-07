@@ -21,6 +21,12 @@
 </head>
 <body>
     <h1>Database Generator</h1>
+        <fieldset>
+            <legend>Instruct</legend>
+            You can find tips under elements: 
+                <span data-toggle="tooltip" data-placement="top" title="There is a tip for you...">
+                    Element
+                </span>
     <hr>
     <div id="app">
         <form action="generator.php" method="POST">
@@ -41,7 +47,10 @@
             </table>
 
             <hr>
-
+<!-- 
+TABELA JEST PRZESTARZAŁA
+UŻYJ DIVów I FLEXBOXA
+ -->
             <table>
 
                 <thead>
@@ -51,7 +60,7 @@
                     <th>Column Name</th>
                     <th>Type</th>
                     <th>Example</th>
-                    <th data-toggle="tooltip" data-placement="top" title="Hooray!">
+                    <th data-toggle="tooltip" data-placement="top" title="Define datatype with length, for example varchar(255) or int(10)...">
                         Data type
                     </th>
                 </tr>

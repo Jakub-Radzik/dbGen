@@ -27,6 +27,12 @@ tr {
         -ms-flex-align: center;
             align-items: center; }
 
+[data-toggle="tooltip"], #under-dotted {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted; }
+
 input {
   height: 30px; }
   input[type="button"] {
