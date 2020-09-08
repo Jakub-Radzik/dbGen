@@ -1,7 +1,21 @@
 select, option, input {
   width: 100px;
-  margin: 1px;
-  border-radius: 5px; }
+  margin: 1px; }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 select, option {
   height: 36px; }
@@ -36,6 +50,7 @@ tr {
 input {
   height: 30px; }
   input[type="button"] {
-    background: red; }
+    background: #00ff00;
+    border: none; }
 
 /*# sourceMappingURL=style.css.map */
