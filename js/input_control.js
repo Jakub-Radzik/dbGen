@@ -40,33 +40,37 @@ function numering(){
         lp[i].innerHTML=i+1; 
         lp[i].parentElement.querySelector('.col-name').querySelector('*').name=`col-name-${i+1}`;
         lp[i].parentElement.querySelector('.td-type').querySelector('*').name=`data-type-${i+1}`;
-        lp[i].parentElement.querySelector('.type-of-data-td').querySelector('*').name=`type-of-data-${i+1}`;
+        lp[i].parentElement.querySelector('.type-of-data-div').querySelector('*').name=`type-of-data-${i+1}`;
     }
 }
 
 function add_line(){
 
-    let child_line = document.createElement('tr');
+    let child_line = document.createElement('div');
+    child_line.classList.add('define-position');
+
+
+
     child_line.innerHTML=`
-    <td><input type="button" value="X" onclick="delete_line(this)"></td>
-    <td class="lp">
-    </td>
-    <td class="col-name">
-    <input type="text"  name="col-name">
-    </td>
-    <td class="td-type">
-    <select class='type' name="data-type" onchange="generate_example(this)">
-    ${option_html}
-    </select>
-    </td>
-    <td class="example">
-    </td>
-    <td class="type-of-data-td">
-    <input type="text" name="type-of-data">
-    </td>
+    
+    <div class="dismiss" onclick="delete_line(this)">X</div>
+    <div class="lp"></div>
+    <div class="col-name"><input type="text"  name="col-name-1"></div>
+
+
+    <div class="div-type">
+        <select class='type' name="data-type" onchange="generate_example(this)">
+            ${option_html}
+        </select>
+    </div>
+    
+
+    <div class="example">Example</div>
+
+    <div class="type-of-data-div"><input type="text" name="type-of-data-1"></div>
 `;
     
-    document.querySelector('#liner').appendChild(child_line);
+    document.querySelector('.sql-data').appendChild(child_line);
     numering();
 }
 

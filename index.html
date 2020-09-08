@@ -30,7 +30,9 @@
                 </span>
     <hr>
     <div id="app">
-        <form action="generator.php" method="POST">
+
+
+        <form action="generator.php" method="POST" id="form-app">
             
             <table>
                 <thead>
@@ -54,7 +56,7 @@ UŻYJ DIVów I FLEXBOXA
  -->
  <input type="button" id="appender" onclick="add_line()" value="Dodaj kolumnę">
  <br>
-            <table>
+            <!-- <table>
 
                 <thead>
                     
@@ -101,7 +103,31 @@ UŻYJ DIVów I FLEXBOXA
                 </tbody>
 
 
-            </table>
+            </table> -->
+
+
+            <section class="sql-data">
+                <div class="titles define-position">
+                    <div>Delete</div>
+                    <div>LP</div>
+                    <div>Column Name</div>
+                    <div>Type</div>
+                    <div>Example</div>
+                    <div data-toggle="tooltip" data-placement="top" title="Define datatype with length, for example varchar(255) or int(10)...">Data type</div>
+                </div>
+                <div class="define-position">
+                    <div class="dismiss" onclick="delete_line(this)">X</div>
+                    <div class="lp">1</div>
+                    <div class="col-name"><input type="text"  name="col-name-1"></div>
+                    <div class="div-type">
+                        <select class='type' name="data-type-1" onchange="generate_example(this)">
+                        </select></div>
+                    <div class="example">Example</div>
+                    <div class="type-of-data-div"><input type="text" name="type-of-data-1"></div>
+                </div>
+            </section>
+
+
             <label for="quantity">Number of records:</label><br>
             <input type="text" id="quantity" name="quantity" placeholder="records">
             <br>
