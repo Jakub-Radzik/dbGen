@@ -1,8 +1,16 @@
 input
-    @extend %sizing
-    height: 30px
+    height : 30px
+    width : 100%
+    max-width : 300px
     &[type="button"]
-        background: #00ff00
-        border: none
-        
-
+        background : #479747
+        border : 2px solid #479747
+        color : white
+        font-family : 'Mulish', sans-serif
+        font-weight : bolder
+        transition-duration : 0.5s
+        &:hover
+            background : #ffffff
+            color : #479747
+            
+    &[type="submit"]

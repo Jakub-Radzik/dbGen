@@ -1,4 +1,6 @@
-select, option, input {
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap");
+select, option {
   width: 100px;
   margin: 1px; }
 
@@ -16,6 +18,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  body h1 {
+    font-family: "Teko", sans-serif;
+    font-size: 4em; }
+
+[data-toggle="tooltip"], #under-dotted {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted; }
 
 select, option {
   height: 36px; }
@@ -41,16 +52,20 @@ tr {
         -ms-flex-align: center;
             align-items: center; }
 
-[data-toggle="tooltip"], #under-dotted {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-  -webkit-text-decoration-style: dotted;
-          text-decoration-style: dotted; }
-
 input {
-  height: 30px; }
+  height: 30px;
+  width: 100%;
+  max-width: 300px; }
   input[type="button"] {
-    background: #00ff00;
-    border: none; }
+    background: #479747;
+    border: 2px solid #479747;
+    color: white;
+    font-family: "Mulish", sans-serif;
+    font-weight: bolder;
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s; }
+    input[type="button"]:hover {
+      background: #ffffff;
+      color: #479747; }
 
 /*# sourceMappingURL=style.css.map */

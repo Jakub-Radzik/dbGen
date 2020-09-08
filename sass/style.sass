@@ -1,13 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap')
+
 %sizing
     width: 100px
     margin: 1px
-    
+//OK STYLES   
 body
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
 
+    h1
+        font-family: 'Teko', sans-serif
+        font-size: 4em
+
+[data-toggle="tooltip"], #under-dotted
+    text-decoration-line: underline
+    text-decoration-style: dotted
+//SHAME AND REFACTOR NEEDED
 
 select, option
     @extend %sizing
@@ -29,9 +40,7 @@ tr
         justify-content: center
         align-items: center
       
-[data-toggle="tooltip"], #under-dotted
-    text-decoration-line: underline
-    text-decoration-style: dotted
+
 
 
 @import 'modules/_buttons.sass'
