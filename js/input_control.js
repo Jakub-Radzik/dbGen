@@ -39,7 +39,7 @@ function numering(){
     for (let i = 0; i < lp.length; i++) {
         lp[i].innerHTML=i+1; 
         lp[i].parentElement.querySelector('.col-name').querySelector('*').name=`col-name-${i+1}`;
-        lp[i].parentElement.querySelector('.td-type').querySelector('*').name=`data-type-${i+1}`;
+        lp[i].parentElement.querySelector('.div-type').querySelector('*').name=`data-type-${i+1}`;
         lp[i].parentElement.querySelector('.type-of-data-div').querySelector('*').name=`type-of-data-${i+1}`;
     }
 }
@@ -65,7 +65,7 @@ function add_line(){
     </div>
     
 
-    <div class="example">Example</div>
+    <div class="example"></div>
 
     <div class="type-of-data-div"><input type="text" name="type-of-data-1"></div>
 `;
@@ -75,6 +75,6 @@ function add_line(){
 }
 
 function delete_line(x){
-    x.parentNode.parentNode.remove();
+    x.parentNode.remove();
     numering();
 }
