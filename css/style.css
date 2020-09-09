@@ -19,7 +19,8 @@ body {
     width: 100%; }
     body .responsive h1 {
       font-family: "Teko", sans-serif;
-      font-size: 4em; }
+      font-size: 4em;
+      text-align: center; }
     body .responsive #app {
       width: 100%;
       margin-bottom: 100px; }
