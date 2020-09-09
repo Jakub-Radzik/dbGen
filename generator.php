@@ -18,7 +18,7 @@
         $arr_type_of_data = []; //EXAMPLE: int(10), varchar(255)
 
 
-        for ($i=1; $i <= intdiv(count($_POST),4)+1 ; $i++) { 
+        for ($i=1; $i <= intdiv(count($_POST),3)-1 ; $i++) { 
             $arr_col_names[$i-1]=$_POST['col-name-'.strval($i)];
             $arr_data_types[$i-1]=$_POST['data-type-'.strval($i)];
             $arr_type_of_data[$i-1]=$_POST['type-of-data-'.strval($i)];
