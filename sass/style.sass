@@ -1,44 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap')
 
+@mixin flex-position($justify, $align, $direction)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
+
+    
+
 %sizing
     width: 100px
     margin: 1px
 //OK STYLES   
 body
-    display : flex
-    flex-direction : column
-    justify-content : center
-    align-items : center
-    border : 1px solid black
+    @include flex-position(center, center, column)
 
-    h1
-        font-family : 'Teko', sans-serif
-        font-size : 4em
-
-    #app
-        border : 1px solid black
+    .responsive
+        max-width: 1000px
         width : 100%
-        
-        #form-app
-            width: 1000px
-            display: flex
-            flex-direction: column
-            justify-content: center
-            align-items: center
+        h1
+            font-family : 'Teko', sans-serif
+            font-size : 4em
 
-            .define-position
-                border : 1px solid black
-                display : flex
-                flex-direction : row
-                margin-bottom : 10px
-                height : 50px
-                &>div
-                    border : 1px solid black
-                    width : calc(100%/6)
+        #app
+            width : 100%
+            margin-bottom: 100px
+            
+            #form-app
+                width: 100%
+                display: flex
+                @include flex-position(center, center , column)
+
+                .base-table
                     display: flex
-                    justify-content: center
-                    align-items: center
+                    flex-direction: row
+                    width: 50%
+                    &>div
+                        width: calc( 100% /2 )
+                        margin: 5px
+                        @include flex-position(center, center , row )
+                        height: 50px
+
+                .sql-data
+                    width: 100%
+                    @include flex-position(center, center , column )
+                    
+                    .titles
+                        font-weight: bolder
+
+                    .define-position
+                        @include flex-position(center, center, row)
+                        height : 50px
+                        width: 90%
+                        border-bottom: 1px solid black
+                        &>div
+                            width : calc(100%/6)
+                            @include flex-position(center, center, row)
 
 
 [data-toggle="tooltip"], #under-dotted
@@ -46,28 +64,11 @@ body
     text-decoration-style: dotted
 //SHAME AND REFACTOR NEEDED
 
-select, option
-    @extend %sizing
-    height: 36px
 
 
-thead
-    tr
-        border-top: 1px solid black
-
-tr
-    display: flex
-    border-bottom: 1px solid black
-
-    td,th
-        width: 120px
-        height: 50px
-        display: flex
-        justify-content: center
-        align-items: center
       
-*
-    border : 1px solid black
+// *
+//     border : 1px solid black
 
 
 

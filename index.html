@@ -21,6 +21,7 @@
     <script src="js/tooltips.js"></script>
 </head>
 <body>
+    <div class="responsive">
     <h1>Database Generator</h1>
         <fieldset>
             <legend>Instruct</legend>
@@ -29,82 +30,26 @@
                     Element
                 </span>
     <hr>
-    <div id="app">
+        <div id="app">
 
 
         <form action="generator.php" method="POST" id="form-app">
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nazwa bazy</th>
-                        <th>Nazwa tabeli</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th><input type="text" placeholder="Database Name" name="db-name"></th>
-                        <th><input type="text" placeholder="Table Name" name="tab-name"></th>
-                    </tr>
-                </tbody>
-            </table>
+
+            <div class="base-table">
+                <div>Nazwa bazy</div>
+                <div>Nazwa tabeli</div>
+            </div>
+
+            <div class="base-table">
+                <div><input type="text" placeholder="Database Name" name="db-name"></div>
+                <div><input type="text" placeholder="Table Name" name="tab-name"></div>
+            </div>
 
             <hr>
-<!-- 
-TABELA JEST PRZESTARZAŁA
-UŻYJ DIVów I FLEXBOXA
- -->
- <input type="button" id="appender" onclick="add_line()" value="Dodaj kolumnę">
- <br>
-            <!-- <table>
 
-                <thead>
-                    
-                <tr>
-                    <th>Delete</th>
-                    <th>LP</th>
-                    <th>Column Name</th>
-                    <th>Type</th>
-                    <th>Example</th>
-                    <th data-toggle="tooltip" data-placement="top" title="Define datatype with length, for example varchar(255) or int(10)...">
-                        Data type
-                    </th>
-                </tr>
-                </thead>
-
-                <tbody id="liner">
-                    <tr>
-                        <td class="dismiss">
-                            <input type="button" value="X" onclick="delete_line(this)">
-                        </td>
-                        <td class="lp">
-                            1
-                        </td>
-
-                        <td class="col-name">
-                            <input type="text"  name="col-name-1">
-                        </td>
-
-                        <td class="td-type">
-                            <select class='type' name="data-type-1" onchange="generate_example(this)">
-                            </select>
-                        </td>
-
-                        <td class="example">
-
-                        </td>
-
-                        <td class="type-of-data-td">
-                            <input type="text" name="type-of-data-1">
-                        </td>
-
-                    </tr>
-                
-                </tbody>
-
-
-            </table> -->
-
+            <input type="button" id="appender" onclick="add_line()" value="Dodaj kolumnę">
+            <br>
 
             <section class="sql-data">
                 <div class="titles define-position">
@@ -134,7 +79,8 @@ UŻYJ DIVów I FLEXBOXA
             <input type="submit" value="Generuj bazę">
         </form>
 
-    </div>  
+        </div>  
+    </div>
     <script>
         generate_options();
     </script>
